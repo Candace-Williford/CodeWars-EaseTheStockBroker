@@ -1,0 +1,6 @@
+c:\users\cwilliford\documents\visual studio 2013\Projects\CodeWars-EaseTheStockBroker\CodeWars-EaseTheStockBroker\bin\Debug\CodeWars-EaseTheStockBroker.exe.config
+c:\users\cwilliford\documents\visual studio 2013\Projects\CodeWars-EaseTheStockBroker\CodeWars-EaseTheStockBroker\bin\Debug\CodeWars-EaseTheStockBroker.exe
+c:\users\cwilliford\documents\visual studio 2013\Projects\CodeWars-EaseTheStockBroker\CodeWars-EaseTheStockBroker\bin\Debug\CodeWars-EaseTheStockBroker.pdb
+c:\users\cwilliford\documents\visual studio 2013\Projects\CodeWars-EaseTheStockBroker\CodeWars-EaseTheStockBroker\obj\Debug\CodeWars-EaseTheStockBroker.csprojResolveAssemblyReference.cache
+c:\users\cwilliford\documents\visual studio 2013\Projects\CodeWars-EaseTheStockBroker\CodeWars-EaseTheStockBroker\obj\Debug\CodeWars-EaseTheStockBroker.exe
+c:\users\cwilliford\documents\visual studio 2013\Projects\CodeWars-EaseTheStockBroker\CodeWars-EaseTheStockBroker\obj\Debug\CodeWars-EaseTheStockBroker.pdb
