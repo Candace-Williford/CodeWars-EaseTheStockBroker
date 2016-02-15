@@ -10,58 +10,96 @@ namespace CodeWars_EaseTheStockBroker
     {
         public static string balanceStatements(string lst)
         {
-            if(lst.Contains(','))
+            string output = "Buy: 0 Sell: 0"; //default value is passed string is null
+            if(!String.IsNullOrEmpty(lst))
             {
-                List<string[]> multipleOrders = ParseMultiple(lst);
-                if(ValidateMultiple(multipleOrders))
+                List<string[]> orders;
+
+                orders = Parse(lst);
+                if (Validate(orders))
                 {
-                    //do stuff
+                    output = Format(orders);
+                }
+                else
+                {
+                    output = GetBadInfo(orders);
                 }
             }
-            else
+            
+            return output;
+        }
+
+        private static string GetBadInfo(List<string[]> orders)
+        {
+            List<string[]> badOrders = new List<string[]>();
+            List<string[]> goodOrders = new List<string[]>();
+
+            foreach (string[] order in orders)
             {
-                string[] singleOrder = ParseSingle(lst);
-                if(ValidateSingle(singleOrder))
+                if (order.Length == 4)
                 {
-                    //do stuff
+                    if (order[0].Contains(' ') //if quote contains spaces
+                        || order[1].Contains('.') //if Quantity is not an int
+                        || !order[2].Contains('.') //if Price is not a double
+                        || !(order[3].ToUpper() == "B" || order[3].ToUpper() == "S")) //if Status is not a 'b' or an 's' (can be upper or lower case)
+                    {
+                        badOrders.Add(order);
+                        continue;
+                    }
                 }
+                else if (order.Length != 4)
+                {
+                    badOrders.Add(order);
+                    continue;
+                }
+
+                goodOrders.Add(order);
             }
 
-            return "";
-        }
-
-        private static bool ValidateSingle(string[] order)
-        {
-            //used for testing below. Best way to test types is to use TryParse
-            int intOutVar;
-            double doubleOutVar;
-
-            if (order.Length == 4)
+            //"Buy: b Sell: s; Badly formed nb: badly-formed 1st simple order ;badly-formed nth simple order ;"
+            string output = Format(goodOrders) + "; Badly formed " + badOrders.Count() + ": ";
+            foreach(string[] order in badOrders)
             {
-                if (!order[0].Contains(' ') //if quote contains no spaces
-                    && int.TryParse(order[1], out intOutVar) //if Quantity is an int
-                    && double.TryParse(order[2], out doubleOutVar) //if Price is a double
-                    && (order[3].ToUpper() == "B" || order[3].ToUpper() == "S")) //if Status is a 'b' or an 's' (can be upper or lower case)
+                foreach (string o in order)
                 {
-                    return true;
+                    output += o + " ";
                 }
+
+                output += ";";
             }
 
-            return false;
+            return output;
         }
 
-        private static string[] ParseSingle(string lst)
+        private static List<string[]> Parse(string lst)
         {
-            //position 0: Quote, position 1: Quantity, position 2: Price, position 3: status
-            string[] order = lst.Trim().Split(' ');
-            return order;
-        }
+            string[] parseOne = lst.Trim().Split(',');
+            List<string[]> parseTwo = new List<string[]>();
 
-        private static bool ValidateMultiple(List<string[]> orders)
-        {
-            foreach(string[] order in orders)
+            foreach (string s in parseOne)
             {
-                if(!ValidateSingle(order))
+                //need to trim each string because they will contain a leading white space from parseOne
+                parseTwo.Add(s.Trim().Split(' '));
+            }
+
+            return parseTwo;
+        }
+
+        private static bool Validate(List<string[]> orders)
+        {
+            foreach (string[] order in orders)
+            {
+                if (order.Length == 4)
+                {
+                    if (order[0].Contains(' ') //if quote contains spaces
+                        || order[1].Contains('.') //if Quantity is not an int
+                        || !order[2].Contains('.') //if Price is not a double
+                        || !(order[3].ToUpper() == "B" || order[3].ToUpper() == "S")) //if Status is not a 'b' or an 's' (can be upper or lower case)
+                    {
+                        return false;
+                    }
+                }
+                else if (order.Length != 4)
                 {
                     return false;
                 }
@@ -70,18 +108,32 @@ namespace CodeWars_EaseTheStockBroker
             return true;
         }
 
-        private static List<string[]> ParseMultiple(string lst)
+        private static string Format(List<string[]> multipleOrders)
         {
-            string[] parseOne = lst.Trim().Split(',');
-            List<string[]> parseTwo = new List<string[]>();
-            
-            foreach(string s in parseOne)
+            double totalSellPrice = 0.00;
+            double totalBuyPrice = 0.00;
+
+            foreach (string[] order in multipleOrders)
             {
-                //need to trim each string because they will contain a leading white space from parseOne
-                parseTwo.Add(s.Trim().Split(' '));
+                //position 0: Quote, position 1: Quantity, position 2: Price, position 3: status
+                //"Buy: 162600 Sell: 0;
+                double quantity;
+                double price;
+                Double.TryParse(order[1], out quantity);
+                Double.TryParse(order[2], out price);
+                double totalPrice = quantity * price;
+
+                if (order[3].ToUpper() == "S")
+                {
+                    totalSellPrice += totalPrice;
+                }
+                else if (order[3].ToUpper() == "B")
+                {
+                    totalBuyPrice += totalPrice;
+                }
             }
 
-            return parseTwo;
+            return "Buy: " + totalBuyPrice + " Sell: " + totalSellPrice;
         }
     }
 }

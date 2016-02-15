@@ -1,13 +1,13 @@
 ﻿using System;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodeWars_EaseTheStockBroker.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class OrdersSummaryTests
     {
 
-        [Test]
+        [TestMethod]
         public void Test1()
         {
             string l = "GOOG 300 542.0 B, AAPL 50 145.0 B, CSCO 250.0 29 B, GOOG 200 580.0 S";

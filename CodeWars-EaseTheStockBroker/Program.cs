@@ -10,7 +10,7 @@ namespace CodeWars_EaseTheStockBroker
     {
         static void Main(string[] args)
         {
-            OrdersSummary.balanceStatements("GOOG 300 542.0 B");
+            Console.WriteLine(OrdersSummary.balanceStatements("CLH16.NYM 50 56 S, OWW 1000 11 S"));
             Console.ReadLine(); //keeps the program from closing
         }
     }

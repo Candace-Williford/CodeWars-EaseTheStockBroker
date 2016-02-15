@@ -1,0 +1,9 @@
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\bin\Debug\EaseTheStockBrokerTests.dll
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\bin\Debug\EaseTheStockBrokerTests.pdb
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\bin\Debug\CodeWars-EaseTheStockBroker.exe
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\bin\Debug\nunit.framework.dll
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\bin\Debug\CodeWars-EaseTheStockBroker.pdb
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\bin\Debug\nunit.framework.xml
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\obj\Debug\EaseTheStockBrokerTests.csprojResolveAssemblyReference.cache
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\obj\Debug\EaseTheStockBrokerTests.dll
+C:\Users\cwilliford\Documents\Visual Studio 2013\Projects\CodeWars-EaseTheStockBroker\EaseTheStockBrokerTests\obj\Debug\EaseTheStockBrokerTests.pdb
